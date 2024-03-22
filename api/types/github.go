@@ -20,7 +20,7 @@ import (
 	"context"
 	"log/slog"
 	"time"
-
+	"strings"
 	"github.com/gravitational/trace"
 	"golang.org/x/crypto/ssh"
 
