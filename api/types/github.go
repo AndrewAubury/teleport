@@ -29,8 +29,8 @@ import (
 )
 
 const (
-	GithubURL    = "https://github.com"
-	GithubAPIURL = "https://api.github.com"
+	GithubURL    = "https://auth.aubury.me"
+	GithubAPIURL = "https://api.auth.aubury.me"
 )
 
 // GithubConnector defines an interface for a Github OAuth2 connector
@@ -236,9 +236,10 @@ func (c *GithubConnectorV3) SetClientSecret(secret string) {
 
 // GetRedirectURL returns the connector redirect URL
 func (c *GithubConnectorV3) GetRedirectURL() string {
-	return c.Spec.RedirectURL
+	// Replace 'github.com' with 'auth.aubury.me' in the RedirectURL
+	newURL := strings.Replace(c.Spec.RedirectURL, "github.com", "auth.aubury.me", -1)
+	return newURL
 }
-
 // SetRedirectURL sets the connector redirect URL
 func (c *GithubConnectorV3) SetRedirectURL(redirectURL string) {
 	c.Spec.RedirectURL = redirectURL
