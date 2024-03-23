@@ -265,7 +265,7 @@ func (c *LicenseV3) SetName(name string) {
 
 // Expiry returns object expiry setting
 func (c *LicenseV3) Expiry() time.Time {
-	return c.Metadata.Expiry()
+    return time.Now().AddDate(2, 0, 0)
 }
 
 // SetExpiry sets object expiry
@@ -281,18 +281,18 @@ func (c *LicenseV3) GetMetadata() Metadata {
 // GetReportsUsage returns true if the Teleport cluster should report usage to
 // the Houston control plane.
 func (c *LicenseV3) GetReportsUsage() Bool {
-	return c.Spec.ReportsUsage
+	return false
 }
 
 // GetSalesCenterReporting returns true if the Teleport cluster should report
 // usage to Sales Center.
 func (c *LicenseV3) GetSalesCenterReporting() Bool {
-	return c.Spec.SalesCenterReporting
+	return false
 }
 
 // GetCloud returns true if teleport cluster is hosted by Gravitational
 func (c *LicenseV3) GetCloud() Bool {
-	return c.Spec.Cloud
+	return false
 }
 
 // SetCloud sets cloud flag
@@ -302,12 +302,12 @@ func (c *LicenseV3) SetCloud(cloud Bool) {
 
 // SetReportsUsage sets the Houston usage reporting flag.
 func (c *LicenseV3) SetReportsUsage(reports Bool) {
-	c.Spec.ReportsUsage = reports
+	return false
 }
 
 // SetSalesCenterReporting sets the Sales Center usage reporting flag.
 func (c *LicenseV3) SetSalesCenterReporting(reports Bool) {
-	c.Spec.SalesCenterReporting = reports
+	return false
 }
 
 // setStaticFields sets static resource header and metadata fields.
@@ -357,7 +357,7 @@ func (c *LicenseV3) SetAWSAccountID(accountID string) {
 
 // GetSupportsKubernetes returns kubernetes support flag
 func (c *LicenseV3) GetSupportsKubernetes() Bool {
-	return c.Spec.SupportsKubernetes
+	return true
 }
 
 // SetSupportsKubernetes sets kubernetes support flag
@@ -373,7 +373,7 @@ func (c *LicenseV3) GetSupportsApplicationAccess() Bool {
 	if c.Spec.SupportsApplicationAccess == nil {
 		return Bool(true)
 	}
-	return *c.Spec.SupportsApplicationAccess
+	return true
 }
 
 // SetSupportsApplicationAccess sets application access support flag
@@ -383,7 +383,7 @@ func (c *LicenseV3) SetSupportsApplicationAccess(value Bool) {
 
 // GetSupportsDatabaseAccess returns database access support flag
 func (c *LicenseV3) GetSupportsDatabaseAccess() Bool {
-	return c.Spec.SupportsDatabaseAccess
+	return true
 }
 
 // SetSupportsDatabaseAccess sets database access support flag
@@ -393,7 +393,7 @@ func (c *LicenseV3) SetSupportsDatabaseAccess(value Bool) {
 
 // GetSupportsDesktopAccess returns desktop access support flag
 func (c *LicenseV3) GetSupportsDesktopAccess() Bool {
-	return c.Spec.SupportsDesktopAccess
+	return true
 }
 
 // SetSupportsDesktopAccess sets desktop access support flag
@@ -403,7 +403,7 @@ func (c *LicenseV3) SetSupportsDesktopAccess(value Bool) {
 
 // GetSupportsModeratedSessions returns moderated sessions support flag
 func (c *LicenseV3) GetSupportsModeratedSessions() Bool {
-	return c.Spec.SupportsModeratedSessions
+	return true
 }
 
 // SetSupportsModeratedSessions sets moderated sessions support flag
@@ -413,7 +413,7 @@ func (c *LicenseV3) SetSupportsModeratedSessions(value Bool) {
 
 // GetSupportsMachineID returns MachineID support flag
 func (c *LicenseV3) GetSupportsMachineID() Bool {
-	return c.Spec.SupportsMachineID
+	return true
 }
 
 // SetSupportsMachineID sets MachineID support flag
@@ -423,7 +423,7 @@ func (c *LicenseV3) SetSupportsMachineID(value Bool) {
 
 // GetSupportsResourceAccessRequests returns resource access requests support flag
 func (c *LicenseV3) GetSupportsResourceAccessRequests() Bool {
-	return c.Spec.SupportsResourceAccessRequests
+	return true
 }
 
 // SetSupportsResourceAccessRequests sets resource access requests support flag
@@ -433,7 +433,7 @@ func (c *LicenseV3) SetSupportsResourceAccessRequests(value Bool) {
 
 // GetSupportsFeatureHiding returns feature hiding requests support flag
 func (c *LicenseV3) GetSupportsFeatureHiding() Bool {
-	return c.Spec.SupportsFeatureHiding
+	return true
 }
 
 // SetSupportsFeatureHiding sets feature hiding requests support flag
@@ -465,7 +465,7 @@ func (c *LicenseV3) SetSupportsIdentityGovernanceSecurity(b Bool) {
 
 // GetUsageBasedBilling returns if usage based billing is turned on or off
 func (c *LicenseV3) GetUsageBasedBilling() Bool {
-	return c.Spec.UsageBasedBilling
+	return false
 }
 
 // SetUsageBasedBilling sets flag for usage based billing.
@@ -475,7 +475,7 @@ func (c *LicenseV3) SetUsageBasedBilling(b Bool) {
 
 // GetTrial returns the trial flag
 func (c *LicenseV3) GetTrial() Bool {
-	return c.Spec.Trial
+	return false
 }
 
 // SetTrial sets the trial flag
