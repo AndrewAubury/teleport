@@ -291,7 +291,7 @@ type Modules interface {
 
 const (
 	// BuildOSS specifies open source build type
-	BuildOSS = "oss"
+	BuildOSS = "ent"
 	// BuildEnterprise specifies enterprise build type
 	BuildEnterprise = "ent"
 )
@@ -363,6 +363,13 @@ func (p *defaultModules) Features() Features {
 		Desktop:           true,
 		AutomaticUpgrades: p.automaticUpgrades,
 		Assist:            true,
+		OIDC: true,
+		SMAL: true,
+		AccessControls: true,
+		DeviceTrustFeature: true,
+		AdvancedAccessWorkflows: true,
+		IsUsageBasedBilling: false
+		
 	}
 }
 
