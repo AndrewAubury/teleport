@@ -369,19 +369,19 @@ func (p *defaultModules) Features() Features {
 		AdvancedAccessWorkflows: true,
 		IsUsageBasedBilling:     false,
 		DeviceTrust: &proto.DeviceTrustFeature{
-			Enabled:           true
-			DevicesUsageLimit: int32(100),
+			Enabled:           true,
+			DevicesUsageLimit: 100,
 		},
 		AccessRequests: &proto.AccessRequestsFeature{
-			MonthlyRequestLimit: int32(100),
+			MonthlyRequestLimit: 100,
 		},
 		IdentityGovernance: f.IdentityGovernanceSecurity,
 		AccessMonitoring: &proto.AccessMonitoringFeature{
-			Enabled:             f.AccessMonitoring.Enabled,
-			MaxReportRangeLimit: int32(f.AccessMonitoring.MaxReportRangeLimit),
+			Enabled:             true,
+			MaxReportRangeLimit: 90,
 		},
 		AccessList: &proto.AccessListFeature{
-			CreateLimit: int32(f.AccessList.CreateLimit),
+			CreateLimit: 90,
 		},
 	}
 }
