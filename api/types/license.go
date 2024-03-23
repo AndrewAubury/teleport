@@ -302,12 +302,12 @@ func (c *LicenseV3) SetCloud(cloud Bool) {
 
 // SetReportsUsage sets the Houston usage reporting flag.
 func (c *LicenseV3) SetReportsUsage(reports Bool) {
-	return false
+	c.Spec.Reports = reports
 }
 
 // SetSalesCenterReporting sets the Sales Center usage reporting flag.
 func (c *LicenseV3) SetSalesCenterReporting(reports Bool) {
-	return false
+	c.Spec.Reports = reports
 }
 
 // setStaticFields sets static resource header and metadata fields.
