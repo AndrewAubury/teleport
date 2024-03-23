@@ -529,7 +529,7 @@ func getBinaryVersion(ctx context.Context, binaryPath string) (Version, error) {
 		return Version{}, trace.Wrap(err)
 	}
 
-	return Version{Version: version, IsEnterprise: submatch[1] != ""}, nil
+	return Version{Version: version, IsEnterprise: true}, nil
 }
 
 func (integration *Integration) tctl(auth *AuthService) tctl.Tctl {

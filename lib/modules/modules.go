@@ -357,19 +357,18 @@ func (p *defaultModules) Features() Features {
 	})
 
 	return Features{
-		Kubernetes:        true,
-		DB:                true,
-		App:               true,
-		Desktop:           true,
-		AutomaticUpgrades: p.automaticUpgrades,
-		Assist:            true,
-		OIDC: true,
-		SMAL: true,
-		AccessControls: true,
-		DeviceTrustFeature: true,
+		Kubernetes:              true,
+		DB:                      true,
+		App:                     true,
+		Desktop:                 true,
+		AutomaticUpgrades:       p.automaticUpgrades,
+		Assist:                  true,
+		OIDC:                    true,
+		SMAL:                    true,
+		AccessControls:          true,
+		DeviceTrustFeature:      true,
 		AdvancedAccessWorkflows: true,
-		IsUsageBasedBilling: false
-		
+		IsUsageBasedBilling:     false,
 	}
 }
 
