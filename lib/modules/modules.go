@@ -188,16 +188,15 @@ func (f Features) ToProto() *proto.Features {
 		AccessRequests: &proto.AccessRequestsFeature{
 			MonthlyRequestLimit: int32(f.AccessRequests.MonthlyRequestLimit),
 		},
-		IdentityGovernance: f.IdentityGovernanceSecurity,
 		AccessMonitoring: &proto.AccessMonitoringFeature{
-			Enabled:             f.AccessMonitoring.Enabled,
-			MaxReportRangeLimit: int32(f.AccessMonitoring.MaxReportRangeLimit),
+			Enabled:             true,
+			MaxReportRangeLimit: int32(100),
 		},
 		AccessList: &proto.AccessListFeature{
-			CreateLimit: int32(f.AccessList.CreateLimit),
+			CreateLimit: int32(100),
 		},
 		Policy: &proto.PolicyFeature{
-			Enabled: f.Policy.Enabled,
+			Enabled: true,
 		},
 	}
 }
@@ -364,11 +363,26 @@ func (p *defaultModules) Features() Features {
 		AutomaticUpgrades:       p.automaticUpgrades,
 		Assist:                  true,
 		OIDC:                    true,
-		SMAL:                    true,
+		SAML:                    true,
 		AccessControls:          true,
 		DeviceTrustFeature:      true,
 		AdvancedAccessWorkflows: true,
 		IsUsageBasedBilling:     false,
+		DeviceTrust: &proto.DeviceTrustFeature{
+			Enabled:           true
+			DevicesUsageLimit: int32(100),
+		},
+		AccessRequests: &proto.AccessRequestsFeature{
+			MonthlyRequestLimit: int32(100),
+		},
+		IdentityGovernance: f.IdentityGovernanceSecurity,
+		AccessMonitoring: &proto.AccessMonitoringFeature{
+			Enabled:             f.AccessMonitoring.Enabled,
+			MaxReportRangeLimit: int32(f.AccessMonitoring.MaxReportRangeLimit),
+		},
+		AccessList: &proto.AccessListFeature{
+			CreateLimit: int32(f.AccessList.CreateLimit),
+		},
 	}
 }
 
